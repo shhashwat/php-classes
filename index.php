@@ -10,6 +10,7 @@
         <input type="text" name="username">
         <input type="password" name="pwd">
         <button>Sign-up</button>
+        <p>Or dont, not my problem</p>
     </form>
     
     <?php
