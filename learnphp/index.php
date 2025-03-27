@@ -7,30 +7,35 @@
 </head>
 <body>
     <form action="index.php" method="post">
-        <label for="username">username:</label>
-        <input type="text" name="username"><br>
-        <label for="password">password:</label>
-        <input type="password" name="password"><br>
-        <input type="submit" name="login" value="Log in">
+        <input type="radio" name="credit_card" value="Visa">Visa<br>
+        <input type="radio"  name="credit_card" value="Mastercard">Mastercard<br>
+        <input type="radio" name="credit_card" value="Rupay">Rupay<br>
+        <input type="submit" name="confirm" value="confirm">
     </form>
 </body>
 </html>
 
 <?php
-    foreach($_POST as $key => $value) {
-        echo "$key = $value <br>";
-    }
+    if(isset($_POST["confirm"])){
+        $credit_card = null;
 
-    // if(isset($_POST['login'])) {
-    //     $username = $_POST['username'];
-    //     $password = $_POST['password'];
+        if(isset($_POST["credit_card"])){
+            $credit_card = $_POST["credit_card"];
+        }
 
-    //     if(empty($username)) {
-    //         echo "Username is missing!";
-    //     }elseif(empty($password)){
-    //         echo "Password is missing!";
-    //     } else {
-    //         echo "Welcome $username";
-    //     };
-    // }
+        switch($credit_card){
+            case "Visa":
+                echo"Visa? Huh? Visat some bitches lmao.";
+                break;
+            case "Mastercard":
+                echo"Mastercard? Huh? Master some bitches lmao.";
+                break;
+            case "Rupay":
+                echo "Rupay? Huh? R u paying for the bitches lmao.";
+                break;
+            default:
+                echo "LMAO YOU BROOOOOOOOOOKEEEEEEEEEE";
+        };
+
+    };
 ?>
