@@ -7,35 +7,20 @@
 </head>
 <body>
     <form action="index.php" method="post">
-        <input type="radio" name="credit_card" value="Visa">Visa<br>
-        <input type="radio"  name="credit_card" value="Mastercard">Mastercard<br>
-        <input type="radio" name="credit_card" value="Rupay">Rupay<br>
-        <input type="submit" name="confirm" value="confirm">
+        <input type="checkbox" name="foods[]" value="Pizza"> Pizza <br>
+        <input type="checkbox" name="foods[]" value="Burger"> Burger <br>
+        <input type="checkbox" name="foods[]" value="Fries"> Fries <br>
+        <input type="checkbox" name="foods[]" value="Drinks"> Drinks <br>
+        <input type="submit" name="check">
     </form>
 </body>
 </html>
 
 <?php
-    if(isset($_POST["confirm"])){
-        $credit_card = null;
-
-        if(isset($_POST["credit_card"])){
-            $credit_card = $_POST["credit_card"];
+    if(isset($_POST["check"])){
+        $foods = $_POST["foods"];
+        foreach($foods as $food) {
+            echo $food . "<br>";
         }
-
-        switch($credit_card){
-            case "Visa":
-                echo"Visa? Huh? Visat some bitches lmao.";
-                break;
-            case "Mastercard":
-                echo"Mastercard? Huh? Master some bitches lmao.";
-                break;
-            case "Rupay":
-                echo "Rupay? Huh? R u paying for the bitches lmao.";
-                break;
-            default:
-                echo "LMAO YOU BROOOOOOOOOOKEEEEEEEEEE";
-        };
-
-    };
+    }
 ?>
