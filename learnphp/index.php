@@ -1,18 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="index.php" method="post">
+        <label for="captials">Enter a country</label><br>
+        <input type="text" name="captials"><br>
+        <input type="submit" value="Submit">
+    </form>
+</body>
+</html>
+
 <?php
-    $foods = array("Apple", "Banana", "Orange", "Pineapple", "Watermelon");
+    $captials = [
+        "India"=> "New Delhi",
+        "Japan"=> "Tokyo",
+        "Nepal"=> "Katmandu",
+        "USA"=> "Washington DC",
+        "UAE"=> "Dubai",
+        "South Korea"=> "Seoul",
+    ];
 
-    $foods[0] = "Dal Chawal";
+    $country = $_POST["captials"];
 
-    // array_push($foods, "Grapes", "Roti Sabzi");
+    echo"The captial of $country is $captials[$country]";
 
-    // array_pop($foods);
-    // array_shift($foods);
+    // $captials["India"] = "Allahabad";
+    // $captials["China"] = "Beijing";
+    // array_pop($captials);
 
-    // $rev_foods = array_reverse($foods);
+    // $keys = array_keys($captials);
+    // $values = array_values($captials);
 
-    // foreach ($foods as $food) {
-    //     echo $food . "<br>";
+    // foreach ($values as $key) {
+    //     echo"$key <br>";
     // }
 
-    echo count($foods);
+    // $captials = array_flip($captials);
+
+    // foreach ($captials as $key => $value) {
+    //     echo "The captial of $key is $value <br>";
+    // }
 ?>
