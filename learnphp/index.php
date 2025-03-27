@@ -7,33 +7,29 @@
 </head>
 <body>
     <form action="index.php" method="post">
-        <label for="x">x:</label>
-        <input type="text" name="x"/><br>
-        <label for="y">y:</label>
-        <input type="text" name="y"/><br>
-        <label for="z">z:</label>
-        <input type="text" name="z"/><br>
-        <input type="submit" value="total">
-    </form>
+        <label for="radius">radius:</label>
+        <input type="text" name="radius"/><br>
+        <input type="submit" value="calculate">
+    </form><br>
 </body>
 </html>
 
 <?php
-    $x = $_POST["x"];
-    $y = $_POST["y"];
-    $z = $_POST["z"];
-    $total = null;
+    $radius = $_POST["radius"];
+    $circumference =  null;
+    $area = null;
+    $volume = null;
 
-    // $total = abs($x);
-    // $total = round($x);
-    // $total = floor($x);
-    // $total = ceil($x);
-    // $total = pow($x,$y);
-    // $total = sqrt($x);
-    // $total = max($x,$y,$z);
-    // $total = min($x,$y,$z);
-    // $total = pi();
-    $total = rand(1,100);
+    $circumference = 2 * pi() * $radius;
+    $circumference = round($circumference, 2);
 
-    echo $total;
+    $area = pi() * pow($radius, 2);
+    $area = round($area , 2);
+
+    $volume = pow($radius, 3) * pi() * (4/3);
+    $volume = round($volume , 2);
+
+    echo "Circumference : {$circumference} cms <br>";
+    echo "Area : {$area} cms<sup>2</sup> <br>";
+    echo "Volume : {$volume} cms<sup>3</sup> <br>";
 ?>
