@@ -1,22 +1,20 @@
 <?php
-    $hours = 56;
-    $rate = 15;
-    $weekly_pay = null;
-    $isValid = true;
-
-    if($hours < 0) {
-        $isValid = false;
-    } elseif($hours <= 40) {
-        $weekly_pay = $hours * $rate;
-    } else {
-        $overtime = $hours - 40;
-        $overtime_rate = 20;
-        $weekly_pay = (40 * $rate) + ($overtime * $overtime_rate);
-    };
-
-    if($isValid) {
-        echo "You made \$$weekly_pay this week";
-    } else {
-        echo "Hours must be greater than 0";
-    };
+    $temp = 99;
+    $cloudy = true;
+    
+    if($temp >= 10 && $temp <= 32 ){
+        echo "$temp<sup>o</sup>C is nice outside.";
+    } elseif($temp < 10){
+        echo "$temp<sup>o</sup>C is feezing my balls.";
+    } elseif($temp > 100){
+        echo "Gunna die lol";
+    } else{
+        echo "Its hot as FUCK";
+    }
+    echo"<br>";
+    if(!$cloudy){
+        echo "Least its not cloudy";
+    } else{
+        echo "Fuck this";
+    }
 ?>
