@@ -12,7 +12,7 @@
         <button>Sign-up</button>
         <p>Or dont, not my problem</p>
     </form>
-    
+    echo "Helloooooooooo";
     <?php
     ?>
 </body>
