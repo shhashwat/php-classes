@@ -7,41 +7,30 @@
 </head>
 <body>
     <form action="index.php" method="post">
-        <label for="captials">Enter a country</label><br>
-        <input type="text" name="captials"><br>
-        <input type="submit" value="Submit">
+        <label for="username">username:</label>
+        <input type="text" name="username"><br>
+        <label for="password">password:</label>
+        <input type="password" name="password"><br>
+        <input type="submit" name="login" value="Log in">
     </form>
 </body>
 </html>
 
 <?php
-    $captials = [
-        "India"=> "New Delhi",
-        "Japan"=> "Tokyo",
-        "Nepal"=> "Katmandu",
-        "USA"=> "Washington DC",
-        "UAE"=> "Dubai",
-        "South Korea"=> "Seoul",
-    ];
+    foreach($_POST as $key => $value) {
+        echo "$key = $value <br>";
+    }
 
-    $country = $_POST["captials"];
+    // if(isset($_POST['login'])) {
+    //     $username = $_POST['username'];
+    //     $password = $_POST['password'];
 
-    echo"The captial of $country is $captials[$country]";
-
-    // $captials["India"] = "Allahabad";
-    // $captials["China"] = "Beijing";
-    // array_pop($captials);
-
-    // $keys = array_keys($captials);
-    // $values = array_values($captials);
-
-    // foreach ($values as $key) {
-    //     echo"$key <br>";
-    // }
-
-    // $captials = array_flip($captials);
-
-    // foreach ($captials as $key => $value) {
-    //     echo "The captial of $key is $value <br>";
+    //     if(empty($username)) {
+    //         echo "Username is missing!";
+    //     }elseif(empty($password)){
+    //         echo "Password is missing!";
+    //     } else {
+    //         echo "Welcome $username";
+    //     };
     // }
 ?>
