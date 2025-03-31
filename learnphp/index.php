@@ -1,19 +1,20 @@
 <?php
     include("database.php");
 
-    $username = "goku";
-    $password = "notlikeus";
-    $hash = password_hash($password, PASSWORD_DEFAULT);
+    $sql = "SELECT * FROM users";
 
-    $sql = "INSERT INTO users (user, password) VALUES ('$username', '$hash')";
+    $result = mysqli_query($conn, $sql);
 
-    try {
-        mysqli_query($conn, $sql);
-        echo "New record created successfully";
-    } catch (mysqli_sql_exception) {
-        echo "Couldn't register the user";
+    if(mysqli_num_rows($result) > 0){
+        while($row = mysqli_fetch_assoc($result)){
+            echo "ID: " . $row["id"] . "<br>";
+            echo "User: ". $row["user"] ."<br>";
+            echo "Registered: ". $row["reg_date"] ."<br>";
+            echo "<br>";
+        }
+    } else{
+        echo "0 results";
     }
-
 
     mysqli_close($conn);
 ?>
