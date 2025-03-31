@@ -1,15 +1,19 @@
 <?php
     include("database.php");
-?>
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home</title>
-</head>
-<body>
-    Hello <br>
-</body>
-</html>
+    $username = "goku";
+    $password = "notlikeus";
+    $hash = password_hash($password, PASSWORD_DEFAULT);
+
+    $sql = "INSERT INTO users (user, password) VALUES ('$username', '$hash')";
+
+    try {
+        mysqli_query($conn, $sql);
+        echo "New record created successfully";
+    } catch (mysqli_sql_exception) {
+        echo "Couldn't register the user";
+    }
+
+
+    mysqli_close($conn);
+?>
