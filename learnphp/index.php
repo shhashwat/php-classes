@@ -1,19 +1,33 @@
-<?php
-    $username = "Ward Corpse";
-    $phone_number = "456-567-7890";
-    // $username = strtolower($username);
-    // $username = strtoupper($username);
-    // $username = trim($username);
-    // $username = str_pad($username,20,"0");
-    // $phone_number = str_replace("-", "/", $phone_number);
-    // $email = "jTf0s@example.com";
-    // $email = strrev($email);
-    // $email = str_shuffle($email);
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="index.php" method="post">
+        username: <br>
+        <input type="text" name="username"><br>
+        age: <br>
+        <input type="age" name="age"><br>
+        email: <br>
+        <input type="email" name="email"><br>
+        <input type="submit" value="Login" name="login">
+    </form>
+</body>
+</html>
 
-    $fullname = "Shashwat Singh Raghuvanshi";
-    $fullname = explode("-", $fullname);
+<?php 
+    if(isset($_POST["login"])){
+        $age = filter_input(INPUT_POST, "age", FILTER_VALIDATE_INT);
+        $email = filter_input(INPUT_POST,"email", FILTER_VALIDATE_EMAIL);
+        // $username = filter_input(INPUT_POST,"username", FILTER_VALIDATE_);
 
-    foreach ($fullname as $name){
-        echo"$name <br>";
+        if(empty($email)){
+            echo "ENTER A VALID email";
+        } else{
+            echo "Your email: $email";
+        }
     }
 ?>
